@@ -44,17 +44,22 @@ struct segment_tree
             return 0;
         }
 
-        if(lazyTree[node] !=0){
-            //pending updates
+        // lazy propagation /clear the lazy update
+        if (lazyTree[node] != 0)
+        {
+            // pending updates
 
-            //update the segment tree node 
-            st[node]+=lazyTree[node]*(end-start+1);
-           
-            if(start!=end){ //it means that it is not a leaf node 
-                lazyTree[2*node+1]+= lazyTree[node];
-                lazyTree[2*node+2]+= lazyTree[node];
+            // update the segment tree node
+            st[node] += lazyTree[node] * (end - start + 1);
+
+            if (start != end)
+            { // it means that it is not a leaf node
+
+                // propagate the updated value
+                lazyTree[2 * node + 1] += lazyTree[node];
+                lazyTree[2 * node + 2] += lazyTree[node];
             }
-            lazyTree[node]=0;
+            lazyTree[node] = 0;
         }
 
         // complete overlap case
@@ -71,29 +76,53 @@ struct segment_tree
         return left + right;
     }
 
-    void update(int start, int end, int node, int index, int value)
+    void update(int start, int end, int node, int l, int r, int value)
     {
+        // non overlap case
 
-        // base case
-        if (start == end)
+        if (start > r || end < l)
         {
-            st[node] = value;
             return;
         }
 
+        // lazy propagation /clear the lazy update
+        if (lazyTree[node] != 0)
+        {
+            // pending updates
+
+            // update the segment tree node
+            st[node] += lazyTree[node] * (end - start + 1);
+
+            if (start != end)
+            { // it means that it is not a leaf node
+
+                // propagate the updated value
+                lazyTree[2 * node + 1] += lazyTree[node];
+                lazyTree[2 * node + 2] += lazyTree[node];
+            }
+            lazyTree[node] = 0;
+        }
+
+        // complete overlap case
+        if (start >= l && end <= r)
+        {
+            st[node] += value * (end - start + 1);
+            if (start != end)
+            {
+                lazyTree[2 * node + 1] += value;
+                lazyTree[2 * node + 2] += value;
+            }
+            return;
+        }
+
+        // partial overlap case
         int mid = (start + end) / 2;
 
-        if (index <= mid)
-        {
-            // left subtree
-            update(start, mid, 2 * node + 1, index, value);
-        }
-        else
-        {
-            // right subtree
-            update(mid + 1, end, 2 * node + 2, index, value);
-        }
+        update(start, mid, 2 * node + 1, l, r, value);
+        update(mid + 1, end, 2 * node + 2, l, r, value);
+
         st[node] = st[2 * node + 1] + st[2 * node + 2];
+
         return;
     }
 
@@ -107,9 +136,9 @@ struct segment_tree
         return query(0, n - 1, l, r, 0);
     }
 
-    void update(int x, int y)
+    void update(int l, int r, int x)
     {
-        update(0, n - 1, 0, x, y);
+        update(0, n - 1, 0, l, r, x);
     }
 };
 
@@ -122,10 +151,14 @@ int main()
     tree.init(akt.size());
     tree.build(akt);
     cout << tree.query(0, 4) << "\n";
-    tree.update(4, 10);
-    cout << tree.query(2, 6) << "\n";
-    tree.update(2, 20);
+    tree.update(0, 1, 10);
     cout << tree.query(0, 4) << "\n";
+    tree.update(0, 1, 20);
+    cout << tree.query(0, 4) << "\n";
+    // tree.update(4, 10);
+    // cout << tree.query(2, 6) << "\n";
+    // tree.update(2, 20);
+    // cout << tree.query(0, 4) << "\n";
 
     return 0;
 }
