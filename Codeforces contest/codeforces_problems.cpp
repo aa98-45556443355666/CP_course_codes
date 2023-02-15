@@ -36,6 +36,45 @@
 // }
 
 // B. Going to the Cinema
+// #include <bits/stdc++.h>
+// #define gap " "
+// #define int long long int
+// using namespace std;
+
+// int32_t main()
+// {
+
+//     ios_base::sync_with_stdio(0);
+//     cin.tie(NULL);
+
+//     int testcases;
+//     cin >> testcases;
+
+//     while (testcases--)
+//     {
+//         int n;
+//         cin>>n;
+
+//         int akt[n];
+//         for(int i=0;i<n;i++){
+//             cin>>akt[i];
+//         }
+
+//         sort(akt,akt+n);
+
+//         int res=1;
+//         if(akt[0]!=0) res++;
+//         for(int i=1;i<n;i++){
+//             if((akt[i-1]<i) && (akt[i]>i)) res++;
+//         }
+
+//        cout<<res<<"\n";
+
+//     }
+//     return 0;
+// }
+
+// B. Following directions
 #include <bits/stdc++.h>
 #define gap " "
 #define int long long int
@@ -52,24 +91,47 @@ int32_t main()
 
     while (testcases--)
     {
-        int n;
-        cin>>n;
 
-        int akt[n];
-        for(int i=0;i<n;i++){
-            cin>>akt[i];
+        int num;
+        cin >> num;
+
+        string str;
+        cin >> str;
+
+        int x = 0, y = 0;
+        int a = 0;
+
+        for (int i = 0; i < num; i++)
+        {
+
+            if (str[i] == 'L')
+            {
+                x--;
+            }
+            else if (str[i] == 'R')
+            {
+                x++;
+            }
+            else if (str[i] == 'U')
+            {
+                y++;
+            }
+            else
+            {
+                y--;
+            }
+            if (x == 1 && y == 1)
+                a = 1;
         }
 
-        sort(akt,akt+n);
-
-        int res=1;
-        if(akt[0]!=0) res++;
-        for(int i=1;i<n;i++){
-            if((akt[i-1]<i) && (akt[i]>i)) res++;
+        if (a)
+        {
+            cout << "YES"
+                 << "\n";
         }
-       
-       cout<<res<<"\n";
-
+        else
+            cout << "NO"
+                 << "\n";
     }
     return 0;
 }
