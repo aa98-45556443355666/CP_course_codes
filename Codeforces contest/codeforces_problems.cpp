@@ -75,9 +75,71 @@
 // }
 
 // B. Following directions
+// #include <bits/stdc++.h>
+// #define gap " "
+// #define int long long int
+// using namespace std;
+
+// int32_t main()
+// {
+
+//     ios_base::sync_with_stdio(0);
+//     cin.tie(NULL);
+
+//     int testcases;
+//     cin >> testcases;
+
+//     while (testcases--)
+//     {
+
+//         int num;
+//         cin >> num;
+
+//         string str;
+//         cin >> str;
+
+//         int x = 0, y = 0;
+//         int a = 0;
+
+//         for (int i = 0; i < num; i++)
+//         {
+
+//             if (str[i] == 'L')
+//             {
+//                 x--;
+//             }
+//             else if (str[i] == 'R')
+//             {
+//                 x++;
+//             }
+//             else if (str[i] == 'U')
+//             {
+//                 y++;
+//             }
+//             else
+//             {
+//                 y--;
+//             }
+//             if (x == 1 && y == 1)
+//                 a = 1;
+//         }
+
+//         if (a)
+//         {
+//             cout << "YES"
+//                  << "\n";
+//         }
+//         else
+//             cout << "NO"
+//                  << "\n";
+//     }
+//     return 0;
+// }
+
+// A. In Search of an Easy Problem
 #include <bits/stdc++.h>
-#define gap " "
 #define int long long int
+#define gap " "
 using namespace std;
 
 int32_t main()
@@ -85,53 +147,34 @@ int32_t main()
 
     ios_base::sync_with_stdio(0);
     cin.tie(NULL);
+    cout.tie(NULL);
 
-    int testcases;
-    cin >> testcases;
+    int num;
+    cin >> num;
 
-    while (testcases--)
+    int prob[num];
+    for (int i = 0; i < num; i++)
     {
-
-        int num;
-        cin >> num;
-
-        string str;
-        cin >> str;
-
-        int x = 0, y = 0;
-        int a = 0;
-
-        for (int i = 0; i < num; i++)
-        {
-
-            if (str[i] == 'L')
-            {
-                x--;
-            }
-            else if (str[i] == 'R')
-            {
-                x++;
-            }
-            else if (str[i] == 'U')
-            {
-                y++;
-            }
-            else
-            {
-                y--;
-            }
-            if (x == 1 && y == 1)
-                a = 1;
-        }
-
-        if (a)
-        {
-            cout << "YES"
-                 << "\n";
-        }
-        else
-            cout << "NO"
-                 << "\n";
+        cin >> prob[i];
     }
+
+    bool level = false;
+    for (int i = 0; i < num; i++)
+    {
+        if (prob[i] == 1)
+            level = true;
+    }
+
+    if (level)
+    {
+        cout << "HARD"
+             << "\n";
+    }
+    else
+    {
+        cout << "EASY"
+             << "\n";
+    }
+
     return 0;
 }
