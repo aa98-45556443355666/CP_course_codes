@@ -137,43 +137,72 @@
 // }
 
 // A. In Search of an Easy Problem
-#include <bits/stdc++.h>
+// #include <bits/stdc++.h>
+// #define int long long int
+// #define gap " "
+// using namespace std;
+
+// int32_t main()
+// {
+
+//     ios_base::sync_with_stdio(0);
+//     cin.tie(NULL);
+//     cout.tie(NULL);
+
+//     int num;
+//     cin >> num;
+
+//     int prob[num];
+//     for (int i = 0; i < num; i++)
+//     {
+//         cin >> prob[i];
+//     }
+
+//     bool level = false;
+//     for (int i = 0; i < num; i++)
+//     {
+//         if (prob[i] == 1)
+//             level = true;
+//     }
+
+//     if (level)
+//     {
+//         cout << "HARD"
+//              << "\n";
+//     }
+//     else
+//     {
+//         cout << "EASY"
+//              << "\n";
+//     }
+
+//     return 0;
+// }
+
+// A. Divisibility Problem
+#include<bits/stdc++.h>
 #define int long long int
 #define gap " "
 using namespace std;
 
-int32_t main()
-{
+int32_t main(){
 
     ios_base::sync_with_stdio(0);
     cin.tie(NULL);
     cout.tie(NULL);
 
-    int num;
-    cin >> num;
+    int testcases;
+    cin>>testcases;
 
-    int prob[num];
-    for (int i = 0; i < num; i++)
-    {
-        cin >> prob[i];
-    }
+    while(testcases--){
+         
+         int a,b;
+         cin>>a>>b;
+         
+         cout<<(b-a%b)%b<<"\n";
 
-    bool level = false;
-    for (int i = 0; i < num; i++)
-    {
-        if (prob[i] == 1)
-            level = true;
-    }
 
-    if (level)
-    {
-        cout << "HARD"
-             << "\n";
-    }
-    else
-    {
-        cout << "EASY"
-             << "\n";
+
     }
 
     return 0;
