@@ -180,6 +180,35 @@
 // }
 
 // A. Divisibility Problem
+// #include<bits/stdc++.h>
+// #define int long long int
+// #define gap " "
+// using namespace std;
+
+// int32_t main(){
+
+//     ios_base::sync_with_stdio(0);
+//     cin.tie(NULL);
+//     cout.tie(NULL);
+
+//     int testcases;
+//     cin>>testcases;
+
+//     while(testcases--){
+         
+//          int a,b;
+//          cin>>a>>b;
+         
+//          cout<<(b-a%b)%b<<"\n";
+
+
+
+//     }
+
+//     return 0;
+// }
+
+// A. Theatre Square
 #include<bits/stdc++.h>
 #define int long long int
 #define gap " "
@@ -187,23 +216,10 @@ using namespace std;
 
 int32_t main(){
 
-    ios_base::sync_with_stdio(0);
-    cin.tie(NULL);
-    cout.tie(NULL);
+    int n,m,a;
+    cin>>n>>m>>a;
 
-    int testcases;
-    cin>>testcases;
-
-    while(testcases--){
-         
-         int a,b;
-         cin>>a>>b;
-         
-         cout<<(b-a%b)%b<<"\n";
-
-
-
-    }
+    cout << ((n - 1) / a + 1) * ((m - 1) / a + 1);
 
     return 0;
 }
