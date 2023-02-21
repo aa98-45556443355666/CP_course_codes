@@ -195,13 +195,11 @@
 //     cin>>testcases;
 
 //     while(testcases--){
-         
+
 //          int a,b;
 //          cin>>a>>b;
-         
+
 //          cout<<(b-a%b)%b<<"\n";
-
-
 
 //     }
 
@@ -209,17 +207,31 @@
 // }
 
 // A. Theatre Square
-#include<bits/stdc++.h>
-#define int long long int
-#define gap " "
+// #include<bits/stdc++.h>
+// #define int long long int
+// #define gap " "
+// using namespace std;
+
+// int32_t main(){
+
+//     int n,m,a;
+//     cin>>n>>m>>a;
+
+//     cout << ((n - 1) / a + 1) * ((m - 1) / a + 1);
+
+//     return 0;
+// }
+
+// A. Young Physicist
+#include <iostream>
 using namespace std;
-
-int32_t main(){
-
-    int n,m,a;
-    cin>>n>>m>>a;
-
-    cout << ((n - 1) / a + 1) * ((m - 1) / a + 1);
-
-    return 0;
+int n, a, b, c, d, e, f;
+main()
+{
+    cin >> n;
+    while (n--)
+    {
+        cin >> a >> b >> c, d += a, e += b, f += c;
+    }
+    cout << (d | e | f ? "NO" : "YES");
 }
