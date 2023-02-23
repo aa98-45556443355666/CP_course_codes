@@ -223,15 +223,48 @@
 // }
 
 // A. Young Physicist
-#include <iostream>
+// #include <iostream>
+// using namespace std;
+// int n, a, b, c, d, e, f;
+// main()
+// {
+//     cin >> n;
+//     while (n--)
+//     {
+//         cin >> a >> b >> c, d += a, e += b, f += c;
+//     }
+//     cout << (d | e | f ? "NO" : "YES");
+// }
+
+// A.String Task
+#include <bits/stdc++.h>
+#define int long long int
+#define gap " "
 using namespace std;
-int n, a, b, c, d, e, f;
-main()
+
+int32_t main()
 {
-    cin >> n;
-    while (n--)
+
+    ios_base::sync_with_stdio(0);
+    cin.tie(NULL);
+    cout.tie(NULL);
+
+    string akt, res;
+    cin >> akt;
+
+    int l = akt.length();
+
+    for (int i = 0; i < l; i++)
     {
-        cin >> a >> b >> c, d += a, e += b, f += c;
+        if (akt[i] != 'a' && akt[i] != 'e' && akt[i] != 'i' && akt[i] != 'o' && akt[i] != 'u' && akt[i] != 'y' && akt[i] != 'A' && akt[i] != 'E' && akt[i] != 'I' && akt[i] != 'O' && akt[i] != 'U' && akt[i] != 'Y')
+        {
+
+            res += '.';
+            res += (char)tolower(akt[i]);
+        }
     }
-    cout << (d | e | f ? "NO" : "YES");
+
+    cout << res << gap;
+
+    return 0;
 }
