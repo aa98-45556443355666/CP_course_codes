@@ -237,11 +237,46 @@
 // }
 
 // A.String Task
+// #include <bits/stdc++.h>
+// #define int long long int
+// #define gap " "
+// using namespace std;
+
+// int32_t main()
+// {
+
+//     ios_base::sync_with_stdio(0);
+//     cin.tie(NULL);
+//     cout.tie(NULL);
+
+//     string akt, res;
+//     cin >> akt;
+
+//     int l = akt.length();
+
+//     for (int i = 0; i < l; i++)
+//     {
+//         if (akt[i] != 'a' && akt[i] != 'e' && akt[i] != 'i' && akt[i] != 'o' && akt[i] != 'u' && akt[i] != 'y' && akt[i] != 'A' && akt[i] != 'E' && akt[i] != 'I' && akt[i] != 'O' && akt[i] != 'U' && akt[i] != 'Y')
+//         {
+
+//             res += '.';
+//             res += (char)tolower(akt[i]);
+//         }
+//     }
+
+//     cout << res << gap;
+
+//     return 0;
+// }
+
+// A. Chat room
 #include <bits/stdc++.h>
 #define int long long int
 #define gap " "
 using namespace std;
 
+string akt;
+int n;
 int32_t main()
 {
 
@@ -249,22 +284,11 @@ int32_t main()
     cin.tie(NULL);
     cout.tie(NULL);
 
-    string akt, res;
-    cin >> akt;
 
-    int l = akt.length();
+   cin>>akt;
+   for (char i : akt)
+       n += (i == "hello"[n]);
+   cout << ((n >= 5) ? "YES" : "NO");
 
-    for (int i = 0; i < l; i++)
-    {
-        if (akt[i] != 'a' && akt[i] != 'e' && akt[i] != 'i' && akt[i] != 'o' && akt[i] != 'u' && akt[i] != 'y' && akt[i] != 'A' && akt[i] != 'E' && akt[i] != 'I' && akt[i] != 'O' && akt[i] != 'U' && akt[i] != 'Y')
-        {
-
-            res += '.';
-            res += (char)tolower(akt[i]);
-        }
-    }
-
-    cout << res << gap;
-
-    return 0;
+   return 0;
 }
