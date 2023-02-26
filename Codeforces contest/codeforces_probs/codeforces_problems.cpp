@@ -270,13 +270,34 @@
 // }
 
 // A. Chat room
+// #include <bits/stdc++.h>
+// #define int long long int
+// #define gap " "
+// using namespace std;
+
+// string akt;
+// int n;
+// int32_t main()
+// {
+
+//     ios_base::sync_with_stdio(0);
+//     cin.tie(NULL);
+//     cout.tie(NULL);
+
+//    cin>>akt;
+//    for (char i : akt)
+//        n += (i == "hello"[n]);
+//    cout << ((n >= 5) ? "YES" : "NO");
+
+//    return 0;
+// }
+
+// A. Serval and Mocha's Array
 #include <bits/stdc++.h>
 #define int long long int
 #define gap " "
 using namespace std;
 
-string akt;
-int n;
 int32_t main()
 {
 
@@ -284,11 +305,43 @@ int32_t main()
     cin.tie(NULL);
     cout.tie(NULL);
 
+    int tests;
+    cin >> tests;
 
-   cin>>akt;
-   for (char i : akt)
-       n += (i == "hello"[n]);
-   cout << ((n >= 5) ? "YES" : "NO");
+    while (tests--)
+    {
 
-   return 0;
+        int num;
+        cin >> num;
+
+        vector<int> akt(num);
+        for (int i = 0; i < num; i++)
+        {
+            cin >> akt[i];
+        }
+
+        int sm = 100000;
+
+        for (int i = 0; i < num; i++)
+        {
+            for (int j = i + 1; j < num; j++)
+            {
+
+                sm = min(sm, __gcd(akt[i], akt[j]));
+            }
+        }
+
+        if (sm > 2)
+        {
+            cout << "NO"
+                 << "\n";
+        }
+        else
+        {
+            cout << "YES"
+                 << "\n";
+        }
+    }
+
+    return 0;
 }
