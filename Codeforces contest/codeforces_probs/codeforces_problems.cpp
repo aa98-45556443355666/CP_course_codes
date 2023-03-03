@@ -293,6 +293,60 @@
 // }
 
 // A. Serval and Mocha's Array
+// #include <bits/stdc++.h>
+// #define int long long int
+// #define gap " "
+// using namespace std;
+
+// int32_t main()
+// {
+
+//     ios_base::sync_with_stdio(0);
+//     cin.tie(NULL);
+//     cout.tie(NULL);
+
+//     int tests;
+//     cin >> tests;
+
+//     while (tests--)
+//     {
+
+//         int num;
+//         cin >> num;
+
+//         vector<int> akt(num);
+//         for (int i = 0; i < num; i++)
+//         {
+//             cin >> akt[i];
+//         }
+
+//         int sm = 100000;
+
+//         for (int i = 0; i < num; i++)
+//         {
+//             for (int j = i + 1; j < num; j++)
+//             {
+
+//                 sm = min(sm, __gcd(akt[i], akt[j]));
+//             }
+//         }
+
+//         if (sm > 2)
+//         {
+//             cout << "NO"
+//                  << "\n";
+//         }
+//         else
+//         {
+//             cout << "YES"
+//                  << "\n";
+//         }
+//     }
+
+//     return 0;
+// }
+
+// A. Typical Interview Problem
 #include <bits/stdc++.h>
 #define int long long int
 #define gap " "
@@ -308,37 +362,24 @@ int32_t main()
     int tests;
     cin >> tests;
 
+    string r = "FBFFBFFBFBFFBFFBFBFFBFFBFBFFBFFBFBFFBFFB";
     while (tests--)
     {
 
-        int num;
-        cin >> num;
+        int k;
+        cin >> k;
 
-        vector<int> akt(num);
-        for (int i = 0; i < num; i++)
+        string st;
+        cin >> st;
+
+        if (r.find(st) != string::npos)
         {
-            cin >> akt[i];
-        }
-
-        int sm = 100000;
-
-        for (int i = 0; i < num; i++)
-        {
-            for (int j = i + 1; j < num; j++)
-            {
-
-                sm = min(sm, __gcd(akt[i], akt[j]));
-            }
-        }
-
-        if (sm > 2)
-        {
-            cout << "NO"
+            cout << "YES"
                  << "\n";
         }
         else
         {
-            cout << "YES"
+            cout << "NO"
                  << "\n";
         }
     }
