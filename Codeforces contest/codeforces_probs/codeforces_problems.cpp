@@ -347,6 +347,47 @@
 // }
 
 // A. Typical Interview Problem
+// #include <bits/stdc++.h>
+// #define int long long int
+// #define gap " "
+// using namespace std;
+
+// int32_t main()
+// {
+
+//     ios_base::sync_with_stdio(0);
+//     cin.tie(NULL);
+//     cout.tie(NULL);
+
+//     int tests;
+//     cin >> tests;
+
+//     string r = "FBFFBFFBFBFFBFFBFBFFBFFBFBFFBFFBFBFFBFFB";
+//     while (tests--)
+//     {
+
+//         int k;
+//         cin >> k;
+
+//         string st;
+//         cin >> st;
+
+//         if (r.find(st) != string::npos)
+//         {
+//             cout << "YES"
+//                  << "\n";
+//         }
+//         else
+//         {
+//             cout << "NO"
+//                  << "\n";
+//         }
+//     }
+
+//     return 0;
+// }
+
+// A. Is It a Cat?
 #include <bits/stdc++.h>
 #define int long long int
 #define gap " "
@@ -362,26 +403,35 @@ int32_t main()
     int tests;
     cin >> tests;
 
-    string r = "FBFFBFFBFBFFBFFBFBFFBFFBFBFFBFFBFBFFBFFB";
+
     while (tests--)
     {
-
-        int k;
-        cin >> k;
+        int num;
+        cin>>num;
 
         string st;
-        cin >> st;
+        cin>>st;
+       
+       string temp;
 
-        if (r.find(st) != string::npos)
-        {
-            cout << "YES"
-                 << "\n";
+       for(int i=0;i<num;i++){
+        st[i]= tolower(st[i]);
+       }
+
+       for(int i=0;i<num;i++){
+
+        if(st[i]!=st[i+1]){
+            temp.push_back(st[i]);
         }
-        else
-        {
-            cout << "NO"
-                 << "\n";
-        }
+       }
+
+     if(temp=="meow"){
+        cout<<"YES"<<"\n";
+     }
+     else{
+        cout<<"NO"<<"\n";
+     }
+       
     }
 
     return 0;
