@@ -388,51 +388,89 @@
 // }
 
 // A. Is It a Cat?
-#include <bits/stdc++.h>
+// #include <bits/stdc++.h>
+// #define int long long int
+// #define gap " "
+// using namespace std;
+
+// int32_t main()
+// {
+
+//     ios_base::sync_with_stdio(0);
+//     cin.tie(NULL);
+//     cout.tie(NULL);
+
+//     int tests;
+//     cin >> tests;
+
+
+//     while (tests--)
+//     {
+//         int num;
+//         cin>>num;
+
+//         string st;
+//         cin>>st;
+       
+//        string temp;
+
+//        for(int i=0;i<num;i++){
+//         st[i]= tolower(st[i]);
+//        }
+
+//        for(int i=0;i<num;i++){
+
+//         if(st[i]!=st[i+1]){
+//             temp.push_back(st[i]);
+//         }
+//        }
+
+//      if(temp=="meow"){
+//         cout<<"YES"<<"\n";
+//      }
+//      else{
+//         cout<<"NO"<<"\n";
+//      }
+       
+//     }
+
+//     return 0;
+// }
+
+//B. Count the Number of Pairs
+#include<bits/stdc++.h>
 #define int long long int
 #define gap " "
 using namespace std;
 
-int32_t main()
-{
+int32_t main(){
 
-    ios_base::sync_with_stdio(0);
-    cin.tie(NULL);
-    cout.tie(NULL);
+    ios_base::sync_with_stdio(NULL);
+    cin.tie(0);
+    cout.tie(0);
 
     int tests;
-    cin >> tests;
+    cin>>tests;
 
+    while(tests--){
+         
+         int n,k;
+         cin>>n>>k;
 
-    while (tests--)
-    {
-        int num;
-        cin>>num;
+         string s;
+         cin>>s;
 
-        string st;
-        cin>>st;
-       
-       string temp;
+         int cnt[1000001]={0};
+         for(int i=0;i<n;i++){
+            cnt[s[i]]++;
+         }
 
-       for(int i=0;i<num;i++){
-        st[i]= tolower(st[i]);
-       }
-
-       for(int i=0;i<num;i++){
-
-        if(st[i]!=st[i+1]){
-            temp.push_back(st[i]);
-        }
-       }
-
-     if(temp=="meow"){
-        cout<<"YES"<<"\n";
-     }
-     else{
-        cout<<"NO"<<"\n";
-     }
-       
+         int res=0, total=0;
+         for(int i='a';i<='z';i++){
+            res+=min(cnt[i],cnt[i+ 'A'- 'a']);
+            total+=abs(cnt[i]-cnt[i+ 'A'- 'a'])/2;
+         }
+         cout<<res+ min(total,k)<<"\n";
     }
-
     return 0;
 }
