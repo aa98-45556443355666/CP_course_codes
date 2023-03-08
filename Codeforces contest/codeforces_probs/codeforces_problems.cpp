@@ -460,7 +460,7 @@ int32_t main(){
          string s;
          cin>>s;
 
-         int cnt[1000001]={0};
+         int cnt[1001]={0};
          for(int i=0;i<n;i++){
             cnt[s[i]]++;
          }
