@@ -403,7 +403,6 @@
 //     int tests;
 //     cin >> tests;
 
-
 //     while (tests--)
 //     {
 //         int num;
@@ -411,7 +410,7 @@
 
 //         string st;
 //         cin>>st;
-       
+
 //        string temp;
 
 //        for(int i=0;i<num;i++){
@@ -431,46 +430,176 @@
 //      else{
 //         cout<<"NO"<<"\n";
 //      }
-       
+
 //     }
 
 //     return 0;
 // }
 
-//B. Count the Number of Pairs
-#include<bits/stdc++.h>
+// B. Count the Number of Pairs
+//  #include<bits/stdc++.h>
+//  #define int long long int
+//  #define gap " "
+//  using namespace std;
+
+// int32_t main(){
+
+//     ios_base::sync_with_stdio(NULL);
+//     cin.tie(0);
+//     cout.tie(0);
+
+//     int tests;
+//     cin>>tests;
+
+//     while(tests--){
+
+//          int n,k;
+//          cin>>n>>k;
+
+//          string s;
+//          cin>>s;
+
+//          int cnt[1001]={0};
+//          for(int i=0;i<n;i++){
+//             cnt[s[i]]++;
+//          }
+
+//          int res=0, total=0;
+//          for(int i='a';i<='z';i++){
+//             res+=min(cnt[i],cnt[i+ 'A'- 'a']);
+//             total+=abs(cnt[i]-cnt[i+ 'A'- 'a'])/2;
+//          }
+//          cout<<res+ min(total,k)<<"\n";
+//     }
+//     return 0;
+// }
+
+// B. Not Dividing
+// #include <bits/stdc++.h>
+// #define int long long int
+// #define gap " "
+// using namespace std;
+
+// int32_t main()
+// {
+
+//    ios_base::sync_with_stdio(NULL);
+//    cin.tie(0);
+//    cout.tie(0);
+
+//    int tests;
+//    cin >> tests;
+
+//    while (tests--)
+//    {
+
+//       int num;
+//       cin >> num;
+
+//       vector<int> arr(num);
+//       for (int i = 0; i < num; i++)
+//       {
+//          cin >> arr[i];
+//       }
+
+//       for (int i = 0; i < num; i++)
+//       {
+//          if (i < num - 1 && arr[i] == 1)
+//          {
+//             arr[i]++;
+//          }
+//       }
+
+//       for (int i = 0; i < num - 1; i++)
+//       {
+//          if (arr[i + 1] % arr[i] == 0)
+//          {
+//             arr[i + 1]++;
+//          }
+//       }
+
+//       for (int i = 0; i < num; i++)
+//          cout << arr[i] << gap;
+//          cout << "\n";
+
+//    }
+//    return 0;
+// }
+
+// B.Asterisk - Minor Template
+#include <bits/stdc++.h>
 #define int long long int
 #define gap " "
 using namespace std;
 
-int32_t main(){
+int32_t main()
+{
 
-    ios_base::sync_with_stdio(NULL);
-    cin.tie(0);
-    cout.tie(0);
+   ios_base::sync_with_stdio(NULL);
+   cin.tie(0);
+   cout.tie(0);
 
-    int tests;
-    cin>>tests;
+   int tests;
+   cin >> tests;
 
-    while(tests--){
-         
-         int n,k;
-         cin>>n>>k;
+   while (tests--)
+   {
 
-         string s;
-         cin>>s;
+      string st;
+      cin >> st;
 
-         int cnt[1001]={0};
-         for(int i=0;i<n;i++){
-            cnt[s[i]]++;
+      string sr;
+      cin >> sr;
+
+      string f = "", s = "";
+
+      int m = st.size();
+      int n = sr.size();
+
+      for (int i = 0; i < m - 1; i++)
+      {
+         for (int j = 0; j < n - 1; j++)
+         {
+
+            if (st[i] == sr[j] && st[i + 1] == sr[j + 1])
+            {
+               f = st[i];
+               s = st[i + 1];
+               break;
+            }
          }
+         if (f != "")
+            break;
+         ;
+      }
 
-         int res=0, total=0;
-         for(int i='a';i<='z';i++){
-            res+=min(cnt[i],cnt[i+ 'A'- 'a']);
-            total+=abs(cnt[i]-cnt[i+ 'A'- 'a'])/2;
+      if (f != "")
+      {
+         cout << "YES"
+              << "\n";
+         cout << "*" << f << s << "\n";
+      }
+      else
+      {
+         if (st[0] == sr[0])
+         {
+            cout << "YES"
+                 << "\n";
+            cout << st[0] << "*"
+                 << "\n";
          }
-         cout<<res+ min(total,k)<<"\n";
-    }
-    return 0;
+         else if (st[m - 1] == sr[n - 1])
+         {
+            cout << "YES"
+                 << "\n";
+            cout << "*" << st[m - 1] << "\n";
+         }
+         else
+         {
+            cout << "NO"
+                 << "\n";
+         }
+      }
+   }
+   return 0;
 }
