@@ -527,6 +527,70 @@
 // }
 
 // B.Asterisk - Minor Template
+// #include <bits/stdc++.h>
+// #define int long long int
+// #define gap " "
+// using namespace std;
+
+// int32_t main()
+// {
+
+//    ios_base::sync_with_stdio(NULL);
+//    cin.tie(0);
+//    cout.tie(0);
+
+//    int tests;
+//    cin >> tests;
+
+//    while (tests--)
+//    {
+
+//       string a, b, fir = "", sec = "";
+//       int a_sz, b_sz;
+//       cin >> a >> b;
+//       a_sz = a.size();
+//       b_sz = b.size();
+//       for (int i = 0; i < (a_sz - 1); i++)
+//       {
+//          for (int j = 0; j < (b_sz - 1); j++)
+//          {
+//             if (a[i] == b[j] and a[i + 1] == b[j + 1])
+//             {
+//                fir = a[i];
+//                sec = a[i + 1];
+//                break;
+//             }
+//          }
+//          if (fir != "")
+//             break;
+//       }
+//       if (fir != "")
+//       {
+//          cout << "YES" << endl;
+//          cout << "*" << fir << sec << "*" << endl;
+//       }
+//       else
+//       {
+//          if (a[0] == b[0])
+//          {
+//             cout << "YES" << endl;
+//             cout << a[0] << "*" << endl;
+//          }
+//          else if (a[a_sz - 1] == b[b_sz - 1])
+//          {
+//             cout << "YES" << endl;
+//             cout << "*" << a[a_sz - 1] << endl;
+//          }
+//          else
+//          {
+//             cout << "NO" << endl;
+//          }
+//       }
+//    }
+//    return 0;
+// }
+
+// M. Minimum LCM
 #include <bits/stdc++.h>
 #define int long long int
 #define gap " "
@@ -539,67 +603,29 @@ int32_t main()
    cin.tie(0);
    cout.tie(0);
 
-   int tests;
-   cin >> tests;
+   int testcases;
+   cin >> testcases;
 
-   while (tests--)
+   while (testcases--)
    {
 
-      string st;
-      cin >> st;
+      int num;
+      cin >> num;
 
-      string sr;
-      cin >> sr;
+      int firstNum, secNum;
 
-      string f = "", s = "";
+      firstNum = 1, secNum = 1;
 
-      int m = st.size();
-      int n = sr.size();
-
-      for (int i = 0; i < m - 1; i++)
+      for (int i = 2; i * i <= num; i++)
       {
-         for (int j = 0; j < n - 1; j++)
+         if (num % i == 0)
          {
-
-            if (st[i] == sr[j] && st[i + 1] == sr[j + 1])
-            {
-               f = st[i];
-               s = st[i + 1];
-               break;
-            }
-         }
-         if (f != "")
+            firstNum = num/i;
             break;
-         ;
+         }
       }
 
-      if (f != "")
-      {
-         cout << "YES"
-              << "\n";
-         cout << "*" << f << s << "\n";
-      }
-      else
-      {
-         if (st[0] == sr[0])
-         {
-            cout << "YES"
-                 << "\n";
-            cout << st[0] << "*"
-                 << "\n";
-         }
-         else if (st[m - 1] == sr[n - 1])
-         {
-            cout << "YES"
-                 << "\n";
-            cout << "*" << st[m - 1] << "\n";
-         }
-         else
-         {
-            cout << "NO"
-                 << "\n";
-         }
-      }
+      cout << firstNum << gap << num - firstNum << "\n";
    }
    return 0;
 }
